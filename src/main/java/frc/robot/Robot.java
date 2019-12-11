@@ -19,7 +19,7 @@ public class Robot extends TimedRobot {
 
     @Override
     public void robotInit() {
-        ControllerSubsystem.get_instance();
+        ControllerSubsystem.getInstance();
     }
 
     @Override

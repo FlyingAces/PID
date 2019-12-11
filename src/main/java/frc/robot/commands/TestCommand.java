@@ -2,8 +2,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import frc.robot.subsystems.TestSubsystem;
 import frc.robot.config.MotorSpeeds;
+import frc.robot.subsystems.TestSubsystem;
 
 
 public class TestCommand extends Command {
@@ -24,12 +24,13 @@ public class TestCommand extends Command {
 
     @Override
     protected void initialize() {
-
+        _test.driveMotorTo(_dir > 0? 2000 : 0);
     }
 
     @Override
     protected void execute() {
-        _test.drive(_dir * MotorSpeeds.TEST_SPEED_MULTIPLIER);
+        //_test.drive(_dir * MotorSpeeds.TEST_SPEED_MULTIPLIER);
+        System.out.println(_test.getCurrentMotorPosition());
     }
 
     @Override
@@ -39,7 +40,7 @@ public class TestCommand extends Command {
 
     @Override
     protected void end() {
-        _test.drive(0.0);
+        //_test.drive(0.0);
     }
 
     @Override

@@ -20,9 +20,11 @@ public class ControllerSubsystem extends Subsystem {
     private ControllerSubsystem() {
         _joystick = new Joystick(RobotMap.Controller.JOYSTICK_PORT.getChannel());
 
+        // TEST BACKWARD
         JoystickButton leftBumper = new JoystickButton(_joystick, RobotMap.Controller.TRIGGER_LB.getChannel());
         leftBumper.whileHeld(new TestCommand(TestCommand.Direction.NEG));
 
+        // TEST FORWARD
         JoystickButton rightBumper = new JoystickButton(_joystick, RobotMap.Controller.TRIGGER_RB.getChannel());
         rightBumper.whileHeld(new TestCommand(TestCommand.Direction.POS));
 
