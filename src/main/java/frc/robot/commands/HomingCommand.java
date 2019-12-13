@@ -31,11 +31,11 @@ public class HomingCommand extends Command
 	@Override
 	protected void execute()
 	{
-		int currentPostion = _test.getCurrentMotorPosition();
+		int currentPosition = _test.getCurrentMotorPosition();
 
 		while(!_test.switchIsTripped())
 		{
-			_test.driveMotorTo(--currentPostion);
+			_test.driveMotorTo(--currentPosition);
 		}
 	}
 
