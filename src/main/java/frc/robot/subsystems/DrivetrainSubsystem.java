@@ -10,7 +10,6 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
-import frc.robot.commands.CommandByControllerAnalog;
 import frc.robot.config.MotorSpeeds;
 import frc.robot.config.RobotMap;
 
@@ -108,7 +107,7 @@ public class DrivetrainSubsystem extends Subsystem {
 
     @Override
     protected void initDefaultCommand() {
-        setDefaultCommand(new CommandByControllerAnalog());
+
     }
 
 }

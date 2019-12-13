@@ -5,8 +5,8 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+import frc.robot.commands.MoveCommand;
 import frc.robot.commands.TestCommand;
-import frc.robot.commands.MoveVariableCommand;
 import frc.robot.config.RobotMap;
 
 
@@ -28,21 +28,13 @@ public class ControllerSubsystem extends Subsystem {
         JoystickButton rightBumper = new JoystickButton(_joystick, RobotMap.Controller.TRIGGER_RB.getChannel());
         rightBumper.whileHeld(new TestCommand(TestCommand.Direction.POS));
 
-        // LEFT
-        JoystickButton xButton = new JoystickButton(_joystick, RobotMap.Controller.X_BUTTON.getChannel());
-        xButton.whileHeld(new MoveVariableCommand(0.0, 1.0));
+        // TEST FREE FORWARD
+     //   JoystickButton xButton = new JoystickButton(_joystick, RobotMap.Controller.X_BUTTON.getChannel());
+       // xButton.whileHeld(new MoveCommand(MoveCommand.Direction.POS));
 
-        // FORWARD
-        JoystickButton yButton = new JoystickButton(_joystick, RobotMap.Controller.Y_BUTTON.getChannel());
-        yButton.whileHeld(new MoveVariableCommand(1.0, 0.0));
-
-        // RIGHT
+        // TEST FREE BACKWARD
         JoystickButton bButton = new JoystickButton(_joystick, RobotMap.Controller.B_BUTTON.getChannel());
-        bButton.whileHeld(new MoveVariableCommand(0.0, -1.0));
-
-        // BACKWARD
-        JoystickButton aButton = new JoystickButton(_joystick, RobotMap.Controller.A_BUTTON.getChannel());
-        aButton.whileHeld(new MoveVariableCommand(-1.0, 0.0));
+        bButton.whenPressed(new MoveCommand(MoveCommand.Direction.NEG));
     }
 
     public static ControllerSubsystem getInstance() {
