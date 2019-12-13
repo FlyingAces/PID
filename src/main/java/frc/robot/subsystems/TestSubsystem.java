@@ -88,6 +88,11 @@ public class TestSubsystem extends Subsystem {
     }
      */
 
+    public boolean switchIsTripped()
+    {
+        return _testMotor.getSensorCollection().isRevLimitSwitchClosed();
+    }
+
     @Override
     public void initDefaultCommand() {
     }

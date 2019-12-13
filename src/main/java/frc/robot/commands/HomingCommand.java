@@ -9,13 +9,16 @@ import frc.robot.subsystems.TestSubsystem;
 public class HomingCommand extends Command
 {
 	// Global instances.
-
+	private TestSubsystem _test;
 
 	// Constructor method.
 	public HomingCommand()
 	{
 		// Super declaration.
 		super("ConstructorCommand");
+
+		_test = TestSubsystem.get_instance();
+		requires(_test);
 	}
 
 	@Override
@@ -28,7 +31,12 @@ public class HomingCommand extends Command
 	@Override
 	protected void execute()
 	{
+		int currentPostion = _test.getCurrentMotorPosition();
 
+		while(!_test.switchIsTripped())
+		{
+			_test.driveMotorTo(--currentPostion);
+		}
 	}
 
 
