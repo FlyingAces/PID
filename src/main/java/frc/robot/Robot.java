@@ -5,28 +5,27 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
+
 package frc.robot;
 
+
 import edu.wpi.first.wpilibj.TimedRobot;
-//import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+
 import frc.robot.subsystems.ControllerSubsystem;
 import frc.robot.subsystems.TestSubsystem;
 
+
 public class Robot extends TimedRobot {
-    //private Command _autonomousCommand;
-    //private Command _teleopCommand;
-    //private Command _testCommand;
-    private TestSubsystem _testSubsystem;
 
     @Override
     public void robotInit() {
-        ControllerSubsystem.getInstance();
+        ControllerSubsystem.getController();
     }
 
     @Override
     public void robotPeriodic() {
-       //
+
     }
 
     @Override
@@ -44,7 +43,6 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         System.out.println("Motor Position: " + TestSubsystem.get_instance().getCurrentMotorPosition());
         Scheduler.getInstance().run();
-
     }
 
     @Override

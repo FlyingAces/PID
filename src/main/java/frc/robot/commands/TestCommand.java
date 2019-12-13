@@ -1,8 +1,8 @@
 package frc.robot.commands;
 
+
 import edu.wpi.first.wpilibj.command.Command;
 
-import frc.robot.config.MotorSpeeds;
 import frc.robot.subsystems.TestSubsystem;
 
 
@@ -40,7 +40,7 @@ public class TestCommand extends Command {
 
     @Override
     protected void end() {
-        //_test.drive(0.0);
+        _test.driveMotor(0.0);
     }
 
     @Override

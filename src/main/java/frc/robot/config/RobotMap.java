@@ -3,11 +3,14 @@ package frc.robot.config;
 public class RobotMap {
     public static final int K_TIMEOUT_MS = 30;
 
+    // P.I.D configuration.
+    public static final double K_P = 16.0;
+    public static final double K_I = 0.0;
+    public static final double K_D = 0.0;
+    public static final double K_F = 0.0;
+
+
     public enum Talon {
-        LEFT_MASTER(3),
-        RIGHT_MASTER(1),
-        LEFT_SLAVE(4),
-        RIGHT_SLAVE(2),
         TEST(5);
 
         private int _channel;
@@ -16,10 +19,11 @@ public class RobotMap {
             _channel = channel;
         }
 
-        public int get_channel() {
+        public int getChannel() {
             return _channel;
         }
     }
+
 
     public enum Controller {
         JOYSTICK_PORT(0),
@@ -44,6 +48,24 @@ public class RobotMap {
 
         public int getChannel() {
             return _channel;
+        }
+    }
+
+
+    public enum Measurement {
+        ROBOT_WIDTH( 0.0),
+        ROBOT_LENGTH(0.0),
+        ROBOT_HEIGHT(0.0),
+        WHEEL_DIAMETER(0.0);
+
+        private double _inches;
+
+        Measurement(double inches) {
+            _inches = inches;
+        }
+
+        public double getInches() {
+            return _inches;
         }
     }
 }
